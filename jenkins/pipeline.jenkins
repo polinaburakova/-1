@@ -17,7 +17,10 @@ pipeline{
                 docker rmi table-reservations-image
 
                 docker compose build table-reservations-service
-                docker compose up -d table-reservations-service
+                docker run -d \
+                      --name table-reservations-container \
+                      -p 8888:8888 \
+                      table-reservations-image
                 """
                 }
             }
