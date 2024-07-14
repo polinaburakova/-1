@@ -1,0 +1,27 @@
+pipline{
+    agent any
+
+    stages {
+        stage("Get project from git") {
+            git "https://github.com/polinaburakova/-1.git"
+        }
+
+        stage("Start project") {
+            script {
+            sh """
+            docker rm -f table-reservations-container
+            docker rmi table-reservations-image
+
+            docker compose build table-reservations-service
+            docker compose up -d table-reservations-service
+            """
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
