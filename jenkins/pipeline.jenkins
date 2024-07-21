@@ -19,7 +19,7 @@ pipeline{
                 docker compose build table-reservations-service
                 docker run -d \
                       --name table-reservations-container \
-                      -p 8888:8888 \
+                      -p 8000:8000 \
                       table-reservations-image
                 """
                 }
