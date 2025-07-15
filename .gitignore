@@ -1,0 +1,9 @@
+# Игнорируем зависимости Node.js
+node_modules/
+
+# Игнорируем файлы окружения
+.env
+
+# Файлы пакетных менеджеров
+package-lock.json
+package.json
