@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер валют ЦБ РФ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Конвертер валют</h1>
+        <p class="subtitle">Курсы Центрального Банка России</p>
+
+        <div class="date-selector">
+            <label for="datePicker">Выберите дату:</label>
+            <input type="date" id="datePicker">
+            <button id="todayBtn">Сегодня</button>
+        </div>
+
+        <div class="converter-box">
+            <div class="currency-input">
+                <input type="number" id="amount" placeholder="0" min="0" step="0.01">
+                <select id="fromCurrency">
+                    <option value="RUB">Российский рубль (RUB)</option>
+                    <option value="USD">Доллар США (USD)</option>
+                    <option value="EUR">Евро (EUR)</option>
+                    <option value="GBP">Фунт стерлингов (GBP)</option>
+                    <option value="CNY">Китайский юань (CNY)</option>
+                </select>
+            </div>
+
+            <div class="swap-btn">
+                <button id="swapCurrencies">⇅</button>
+            </div>
+
+            <div class="currency-output">
+                <input type="number" id="result" placeholder="0" readonly>
+                <select id="toCurrency">
+                    <option value="USD">Доллар США (USD)</option>
+                    <option value="EUR">Евро (EUR)</option>
+                    <option value="RUB">Российский рубль (RUB)</option>
+                    <option value="GBP">Фунт стерлингов (GBP)</option>
+                    <option value="CNY">Китайский юань (CNY)</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="convertBtn">Конвертировать</button>
+
+        <div class="rates-table">
+            <h2>Текущие курсы</h2>
+            <table id="ratesTable">
+                <thead>
+                    <tr>
+                        <th>Валюта</th>
+                        <th>Курс</th>
+                        <th>Изменение</th>
+                    </tr>
+                </thead>
+                <tbody id="ratesBody">
+                    <!-- Курсы будут загружены здесь -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>
